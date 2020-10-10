@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const app = express()
-('dotenv').config()
+require('dotenv').config()
 const users = require('./routes/api/users')
 
 app.use(
@@ -29,5 +29,5 @@ require('./config/passport')(passport)
 // routes
 app.use('/api/users', users)
 
-const port =  PORT || 6022
+const port =  process.env.PORT || 6022
 app.listen(port, () => console.log(`server running on ${port}`))
